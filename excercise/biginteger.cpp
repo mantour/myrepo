@@ -80,11 +80,11 @@ BigInteger operator-(const BigInteger a,const BigInteger b){
     BigInteger result(0);
     for (i = 0; i < precision; i++) {
         if(a.num[i] >= b.num[i] + carry){
-            carry=0;
             result.num[i]=a.num[i]-b.num[i]-carry;
+            carry=0;
         }else{
-            carry=1;
             result.num[i]=a.num[i]+base-b.num[i]-carry;
+            carry=1;
         }
     }
     return result;
@@ -153,11 +153,8 @@ BigInteger operator*(const BigInteger a,const BigInteger b){
 }
 
 int main(){
-    BigInteger a(UINT_MAX);
-    BigInteger b;
-    for(int i=1;i<60000;i++)
-    {
-        b=a*a;
-    }
+    BigInteger a(1000000);
+    BigInteger b(500000);
+    cout<<(a-b).str()<<endl;
     return 0;
 }
