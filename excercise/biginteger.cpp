@@ -155,8 +155,9 @@ BigInteger operator*(const BigInteger a,const BigInteger b){
 int main(){
     BigInteger a(UINT_MAX);
     BigInteger b;
-    b=a*a;
-    cout<<a.str()<<endl;
-    cout<<b.str()<<endl;
+    for(int i=1;i<60000;i++)
+    {
+        b=a*a;
+    }
     return 0;
 }

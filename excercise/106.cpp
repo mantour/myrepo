@@ -1,5 +1,5 @@
 /* 
- * implementation of biginteger algebra
+ * UVA 106
  */
 #include<iostream>
 #include<cstdio>
