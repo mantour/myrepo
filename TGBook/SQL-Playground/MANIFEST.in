@@ -1,0 +1,6 @@
+include start-sqlplayground.py
+include *.cfg
+include sqlplayground/config/*.cfg
+recursive-include sqlplayground/templates *.html
+recursive-include sqlplayground/templates *.kid
+recursive-include sqlplayground/static *

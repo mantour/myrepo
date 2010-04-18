@@ -1,0 +1,2 @@
+db_module=bookmark.model
+history_dir=$base/bookmark/sqlobject-history

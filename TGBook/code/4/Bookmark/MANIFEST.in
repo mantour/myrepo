@@ -1,0 +1,6 @@
+include start-bookmark.py
+include *.cfg
+include bookmark/config/*.cfg
+recursive-include bookmark/templates *.html
+recursive-include bookmark/templates *.kid
+recursive-include bookmark/static *

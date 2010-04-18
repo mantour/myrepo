@@ -1,0 +1,4 @@
+[console_scripts]
+bootstrap-sqlplayground = sqlplayground.command:bootstrap
+start-sqlplayground = sqlplayground.command:start
+

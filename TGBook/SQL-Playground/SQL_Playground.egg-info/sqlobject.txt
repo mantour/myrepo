@@ -1,0 +1,2 @@
+db_module=sqlplayground.model
+history_dir=$base/sqlplayground/sqlobject-history

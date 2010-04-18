@@ -1,0 +1,4 @@
+[console_scripts]
+start-hello = hello.command:start
+bootstrap-hello = hello.command:bootstrap
+

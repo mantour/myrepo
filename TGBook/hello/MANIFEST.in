@@ -1,0 +1,6 @@
+include start-hello.py
+include *.cfg
+include hello/config/*.cfg
+recursive-include hello/templates *.html
+recursive-include hello/templates *.kid
+recursive-include hello/static *

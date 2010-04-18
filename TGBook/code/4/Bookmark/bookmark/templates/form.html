@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+<?python
+from turbogears.i18n.format import format_date
+def dateandtime(d):
+    return format_date(d, format="full", time_format=" @ %X %Z")
+?>
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <title>Bookmarker</title>
+</head>
+<body>
+    <form name="Add Bookmark" method="post" action="/save_bookmark">
+        <p>Name: <input name="name"></input></p>
+        <p>Link: <input name="link"></input></p>
+        <p>Description <textarea name="description" rows="4" cols="30"></textarea></p>
+        <p><input type="submit" value="submit"></input></p>
+    </form>
+</body>
+</html>

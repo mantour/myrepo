@@ -1,0 +1,4 @@
+[console_scripts]
+start-bookmark = bookmark.command:start
+bootstrap-bookmark = bookmark.command:bootstrap
+
