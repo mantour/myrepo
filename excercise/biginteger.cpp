@@ -51,16 +51,16 @@ class BigInteger{
         }
         return;
     }
-    BigInteger add(const BigInteger a,const BigInteger b);
-    BigInteger sub(const BigInteger a,const BigInteger b);
-    BigInteger mul(const BigInteger a,const unsigned int b,const unsigned int offset);
-    pair<BigInteger,unsigned int> div(const BigInteger a,const unsigned int b);
-    BigInteger mul(const BigInteger a,const BigInteger b);
-    int compare(const BigInteger a,const BigInteger b);
+    friend BigInteger operator+(const BigInteger a,const BigInteger b);
+    friend BigInteger operator-(const BigInteger a,const BigInteger b);
+    friend BigInteger mul(const BigInteger a,const unsigned int b,const unsigned int offset);
+    friend pair<BigInteger,unsigned int> div(const BigInteger a,const unsigned int b);
+    friend BigInteger operator*(const BigInteger a,const BigInteger b);
+    static int compare(const BigInteger a,const BigInteger b);
     string str();
 };
 
-BigInteger BigInteger::add(const BigInteger a,const BigInteger b){
+BigInteger operator+(const BigInteger a,const BigInteger b){
     int i;
     unsigned int sum;
     unsigned int carry=0;
@@ -73,7 +73,7 @@ BigInteger BigInteger::add(const BigInteger a,const BigInteger b){
     return result;
 }
 
-BigInteger BigInteger::sub(const BigInteger a,const BigInteger b){
+BigInteger operator-(const BigInteger a,const BigInteger b){
     int i;
     unsigned int dif;
     unsigned int carry=0;
@@ -90,7 +90,7 @@ BigInteger BigInteger::sub(const BigInteger a,const BigInteger b){
     return result;
 }
 
-BigInteger BigInteger::mul(const BigInteger a,const unsigned int b,const unsigned int offset=0){
+BigInteger mul(const BigInteger a,const unsigned int b,const unsigned int offset=0){
     int i;
     unsigned int pro;
     unsigned int carry=0;
@@ -103,7 +103,7 @@ BigInteger BigInteger::mul(const BigInteger a,const unsigned int b,const unsigne
     return result;
 }
 
-pair<BigInteger,unsigned int> BigInteger::div(const BigInteger a,const unsigned int b){
+pair<BigInteger,unsigned int> div(const BigInteger a,const unsigned int b){
     int i;
     unsigned int dividend;
     unsigned int remander=0;
@@ -143,11 +143,11 @@ string BigInteger::str(){
     return strresult;
 }
 
-BigInteger BigInteger::mul(const BigInteger a,const BigInteger b){
+BigInteger operator*(const BigInteger a,const BigInteger b){
     unsigned int i;
     BigInteger result(0);
     for (i = 0; i < precision; i++) {
-        result=BigInteger::add(result,BigInteger::mul(a,b.num[i],i));
+        result=result+mul(a,b.num[i],i);
     }
     return result; 
 }
@@ -155,7 +155,7 @@ BigInteger BigInteger::mul(const BigInteger a,const BigInteger b){
 int main(){
     BigInteger a(UINT_MAX);
     BigInteger b;
-    b=a.mul(a,a);
+    b=a*a;
     cout<<a.str()<<endl;
     cout<<b.str()<<endl;
     return 0;
