@@ -1,5 +1,5 @@
 /* 
- * UVA 106
+ * implimentation of big integer type
  */
 #include<iostream>
 #include<cstdio>
