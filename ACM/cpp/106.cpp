@@ -1,5 +1,5 @@
 /* 
- * UVA 106
+ * UVA 106 (TLE)
  */
 #include<cstdio>
 #include<set>
