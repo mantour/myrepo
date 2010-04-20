@@ -1,7 +1,8 @@
 /* 
- * UVA 106 (TLE)
+ * UVA 106 (AC)
  */
 #include<cstdio>
+#include<cstring>
 #include<set>
 using namespace std;
 
@@ -41,28 +42,41 @@ unsigned long bgcd(unsigned long u, unsigned long v){
 
 
 pair<unsigned long,unsigned long> findtriple(unsigned long N){
-    unsigned long x,y,z,m,n,count=0,i,j;
-    set<unsigned long> xyz;
-    for(n=1;7*n<=5*N;n++){
+    unsigned long x,y,z,m,n,count=0,countdown=N,i;
+    char *xyz = new char[N+1];
+    memset(xyz,0,N*sizeof(char));
+    /*for(i=0;i<N+1;i++){
+        xyz[i]=i;
+    }*/
+    for(n=1;2*n*n<=N;n++){
         for(m=n+1;;m+=2){
-            if(bgcd(m,n)!=1){
-                continue;
-            }
             z=m*m+n*n;
             if(z>N){
                 break;
+            }
+            if(bgcd(m,n)!=1){
+                continue;
             }
             x=m*m-n*n;
             y=2*m*n;
             count++;
             for(i=1;z*i<=N;i++){
-                xyz.insert(x*i);
-                xyz.insert(y*i);
-                xyz.insert(z*i);
+                if(xyz[x*i-1]==0){
+                    xyz[x*i-1]=1;
+                    countdown--; 
+                }
+                if(xyz[y*i-1]==0){
+                    xyz[y*i-1]=1;
+                    countdown--;
+                }
+                if(xyz[z*i-1]==0){
+                    xyz[z*i-1]=1;
+                    countdown--;
+                }
             }
         }
     }
-    return pair<unsigned long,unsigned long>(count,N-xyz.size());
+    return pair<unsigned long,unsigned long>(count,countdown);
 }
 
 int main(){
