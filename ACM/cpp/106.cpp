@@ -76,6 +76,7 @@ pair<unsigned long,unsigned long> findtriple(unsigned long N){
             }
         }
     }
+    delete xyz;
     return pair<unsigned long,unsigned long>(count,countdown);
 }
 
